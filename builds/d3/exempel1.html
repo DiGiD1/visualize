@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> Danis site</title>
+		<script src ="https://d3js.org/d3.v5.min.js"></script>
+	</head>
+	
+	<body>
+	<button onClick=changeSomething(); >
+	klicka här
+	</button>
+
+	<script>
+		var canvas 
+		= d3.select(
+		"body"
+		)
+		.append(
+		"svg"
+		)
+		.attr(
+		"width"
+		, 400)
+		.attr(
+		"height"
+		, 400)
+	
+		function changeSomething() {
+			canvas.append("rect")
+			.attr("width", 200)
+			.attr("height", 200)
+			.attr("fill", "lime")
+			.attr("stroke-width", 4)
+			.attr("stroke", "pink");
+		}
+	</script>
+	</body>
+</html>
