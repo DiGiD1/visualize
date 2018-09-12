@@ -27,10 +27,10 @@
 					.enter()
 					//obs för varje element
 					.append("rect")
-					.attr("width", function (data) {return data;})
-					.attr("height", 40)
-					.attr("x", 0) //x kordinat
-					.attr("y", function (data, i) {return i * 50});
+					.attr("height", function (data) {return data;})
+					.attr("width", 40)
+					.attr("x", function (data, i) {return i * 50;})
+					.attr("y", function (data) {return height-data; });
 					
 					
 	</script>
