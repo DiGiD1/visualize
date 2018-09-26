@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title> Danis good site3</title>
+		<script src ="https://d3js.org/d3.v5.min.js"></script>
+	</head>
+	
+	<body>
+<h1> Stapeldiagram </h1>
+
+
+	<script>
+	window.onload = reDraw;
+	
+	window.onresize = reDraw;
+	
+	function reDraw() {
+	d3.select("svg").remove("staplar");
+		var dataTable = [50, 150, 30, 90, 200];
+		
+		var width = window.innerWidth /2;
+		var height = window.innerHeight / 2;
+		var barMargin = 10;
+		var barWidth = 40;
+		
+		var yScale = d3.scaleLinear()
+						.domain([0 , d3.max(dataTable])
+						.range( [0, height]);
+		
+		
+		var xScale = d3.scaleBand()
+						.domain(dataTable)
+						.range( [0, width])
+						.padding(.2)
+		
+		var canvas = d3.select("body")
+						.append("svg")
+						.attr("width", width)
+						.attr("height", height)
+						.style("background", "lightgrey");
+						
+						
+		canvas.selectAll("staplar").data(dataTable)
+					//d3 enter = loop
+					.enter()
+					//obs för varje element
+					.append("rect")
+					.attr("width", function (data) {return xScale.bandwidth();}
+					.attr("heigt", function (data) {return yScale(data) - barMargin;})
+					.attr("x", function (data, i) {return xScale(data);})
+					.attr("y", function (data) {return height - yScale(data) +  barMargin;});
+					
+					}
+	</script>
+	</body>
+</html>
